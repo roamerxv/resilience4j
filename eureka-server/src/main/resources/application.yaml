@@ -1,0 +1,16 @@
+server:
+    port: 8761
+
+eureka:
+    instance:
+        hostname: localhost
+        prefer-ip-address: true
+    client:
+        registerWithEureka: false   #属性表示是否将自己注册到Eureka Server， 默认为true。 由于当前应用就是Eureka Server， 因此设为 false；
+        fetchRegistry: false        #表示是否从Eureka Server获取注册信息，默认为true。 如果这是一个单点的 Eureka Server，不需要同步其他节点的数据，可以设为false。
+        serviceUrl:
+            defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+logging:
+    level.com.netflix.eureka: OFF
+    level.com.netflix.discovery: OFF

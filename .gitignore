@@ -1,0 +1,33 @@
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+out
+gradle
+classes/
+./src/main/resources/rebel.xml
+
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+*.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+lib
+hs_err_pid18350.log

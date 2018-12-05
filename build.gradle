@@ -1,0 +1,59 @@
+buildscript {
+    ext {
+        REPOSITORY_HOME = "http://maven.aliyun.com/nexus/content/groups/public/"
+        SpringBootVersion = "2.1.1.RELEASE"
+        SpringCloudDependenciesVersion = 'Greenwich.M3'
+        SpringCloudVersion = '2.1.0.M3'
+    }
+    repositories {
+        maven { url "${REPOSITORY_HOME}" }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${SpringBootVersion}")
+    }
+}
+
+
+plugins {
+    id 'java'
+    id 'idea'
+
+    /* 这里定义一个检查 dependency 版本的插件 插件！ 调用方法 gradle dependencyUpdates -Drevision=release */
+    id 'com.github.ben-manes.versions' version "0.20.0"
+    /* 定义结束  */
+
+}
+
+allprojects {
+    apply plugin: 'com.github.ben-manes.versions'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+}
+
+group 'pers.roamer.spring.cloud'
+version '1.0-Greenwich'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+allprojects {
+    repositories {
+        mavenLocal()
+        maven { url "${REPOSITORY_HOME}" }
+        mavenCentral()
+        maven { url "https://repo.spring.io/milestone" }
+    }
+}
+
+
+dependencies {
+    compileOnly "org.projectlombok:lombok:1.18.4"
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${SpringCloudDependenciesVersion}"
+    }
+}
+
