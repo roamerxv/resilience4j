@@ -1,4 +1,5 @@
 rootProject.name = 'resilience4j'
 include 'eureka-server'
 include 'eureka-client'
+include 'feign-client'
 
