@@ -21,6 +21,16 @@ spring:
                 max-idle: 8
                 ## 连接池中的最小空闲连接
                 min-idle: 0
+    boot:
+        admin:
+            client:
+                url: http://127.0.0.1:8000
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
 
 eureka:
     client:

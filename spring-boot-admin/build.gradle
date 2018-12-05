@@ -1,0 +1,21 @@
+buildscript {
+    ext {
+        SpringBootAdminVersion = '2.1.1'
+    }
+}
+
+
+plugins {
+//    id 'war'
+}
+
+apply plugin: 'application'
+mainClassName = 'pers.roamer.spring.boot.admin.BootAdminApplication'
+
+dependencies {
+    compile(
+            "de.codecentric:spring-boot-admin-server:${SpringBootAdminVersion}",
+            "de.codecentric:spring-boot-admin-server-ui:${SpringBootAdminVersion}",
+            "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${SpringCloudVersion}"
+    )
+}

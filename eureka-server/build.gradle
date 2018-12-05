@@ -6,5 +6,7 @@ apply plugin: 'application'
 mainClassName = 'pers.roamer.spring.cloud.eureka.server.ServerApplication'
 
 dependencies {
-    compile("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${SpringCloudVersion}")
+    compile(
+            "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${SpringCloudVersion}",
+    )
 }
