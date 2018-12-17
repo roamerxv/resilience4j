@@ -26,12 +26,12 @@ import java.util.Date;
 @EnableRedisHttpSession
 @EnableEurekaClient
 @RestController
-public class ServiceHiApplication {
+public class HiServiceApplication {
     @Autowired
     HttpSession httpSession;
 
     public static void main(String[] args) {
-        SpringApplication.run( ServiceHiApplication.class, args );
+        SpringApplication.run( HiServiceApplication.class, args );
     }
 
     @Value("${server.port}")

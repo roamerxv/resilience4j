@@ -1,15 +1,9 @@
-buildscript {
-    ext {
-        SpringBootAdminVersion = '2.1.1'
-    }
-}
-
 plugins {
-
+//    id 'war'
 }
 
 apply plugin: 'application'
-mainClassName = 'pers.roamer.spring.cloud.eureka.client.ServiceHiApplication'
+mainClassName = 'pers.roamer.spring.cloud.eureka.client.HiServiceApplication'
 
 dependencies {
     compile(

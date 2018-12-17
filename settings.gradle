@@ -1,6 +1,5 @@
 rootProject.name = 'resilience4j'
 include 'eureka-server'
-include 'eureka-client'
-include 'feign-client'
+include 'hi-service-eureka-client'
 include 'spring-boot-admin'
 
