@@ -14,3 +14,24 @@ eureka:
 logging:
     level.com.netflix.eureka: OFF
     level.com.netflix.discovery: OFF
+
+
+spring:
+    application:
+        name: spring-cloud-eureka-server
+    boot:
+        admin:
+            client:
+                url: http://127.0.0.1:8000                      ## 指向 spring boot admin server
+                username: admin
+                password: admin
+#                instance:
+#                    service-base-url:  http://127.0.0.1:8080    ## 通过 war 方式部署的时候，需要指定被注册的app 的访问 url
+
+##actuator 的功能开放
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+##actuator 配置结束

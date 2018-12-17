@@ -3,7 +3,8 @@ buildscript {
         REPOSITORY_HOME = "http://maven.aliyun.com/nexus/content/groups/public/"
         SpringBootVersion = "2.1.1.RELEASE"
         SpringCloudDependenciesVersion = 'Greenwich.M3'
-        SpringCloudVersion = '2.1.0.M3'
+        SpringCloudVersion = '2.1.0.RC2'
+        SpringBootAdminVersion = '2.1.1'
     }
     repositories {
         maven { url "${REPOSITORY_HOME}" }

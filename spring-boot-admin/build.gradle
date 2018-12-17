@@ -10,12 +10,14 @@ plugins {
 }
 
 apply plugin: 'application'
-mainClassName = 'pers.roamer.spring.boot.admin.BootAdminApplication'
+mainClassName = 'pers.roamer.spring.boot.admin.SpringBootAdminApplication'
 
 dependencies {
     compile(
-            "de.codecentric:spring-boot-admin-server:${SpringBootAdminVersion}",
+            "org.springframework.boot:spring-boot-starter-security",
+            "org.springframework.boot:spring-boot-starter-web",
+            "de.codecentric:spring-boot-admin-starter-server:${SpringBootAdminVersion}",
             "de.codecentric:spring-boot-admin-server-ui:${SpringBootAdminVersion}",
-            "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${SpringCloudVersion}"
+            "de.codecentric:spring-boot-admin-server-ui-login:1.5.7",
     )
 }
