@@ -1,0 +1,15 @@
+plugins {
+//    id 'war'
+}
+
+apply plugin: 'application'
+mainClassName = 'pers.roamer.spring.cloud.feign.FeignApplication'
+
+dependencies {
+    compile(
+            "org.springframework.boot:spring-boot-starter-web",
+            "org.springframework.cloud:spring-cloud-starter-openfeign:2.1.0.M2",
+            "de.codecentric:spring-boot-admin-starter-client:${SpringBootAdminVersion}",
+            "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${SpringCloudVersion}"
+    )
+}

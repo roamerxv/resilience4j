@@ -8,7 +8,7 @@ mainClassName = 'pers.roamer.spring.cloud.eureka.client.HiServiceApplication'
 dependencies {
     compile(
             "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${SpringCloudVersion}",
-            "org.springframework.boot:spring-boot-starter-web:${SpringBootVersion}",
+            "org.springframework.boot:spring-boot-starter-web",
             "org.springframework.boot:spring-boot-starter-data-redis:$SpringBootVersion",
             "org.springframework.session:spring-session-data-redis:2.1.1.RELEASE",
             "org.springframework.boot:spring-boot-starter-actuator",
