@@ -1,9 +1,21 @@
 server:
-    port: 8762
+    port: 8765
 
 spring:
     application:
-        name: hi-service
+        name: feign-client
+    security:
+        user:
+            name: admin
+            password: admin
+    boot:
+        admin:
+            client:
+                url: http://127.0.0.1:8000                      ## 指向 spring boot admin server
+                username: admin
+                password: admin
+#                instance:
+#                    service-base-url:  http://127.0.0.1:8080    ## 通过 war 方式部署的时候，需要指定被注册的app 的访问 url
     redis:
         host: 119.3.24.23
         password: 1qaz369*
@@ -21,23 +33,18 @@ spring:
                 max-idle: 8
                 ## 连接池中的最小空闲连接
                 min-idle: 0
-    boot:
-        admin:
-            client:
-                url: http://127.0.0.1:8000                      ## 指向 spring boot admin server
-                username: admin
-                password: admin
-#                instance:
-#                    service-base-url:  http://127.0.0.1:8080    ## 通过 war 方式部署的时候，需要指定被注册的app 的访问 url
-
-management:
-    endpoints:
-        web:
-            exposure:
-                include: "*"
 
 eureka:
     client:
         serviceUrl:
             defaultZone: http://127.0.0.1:8761/eureka/
+        fetchRegistry: true
 
+management:
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+
+logging:
+    config: classpath:logback-${spring.profiles.active}.xml

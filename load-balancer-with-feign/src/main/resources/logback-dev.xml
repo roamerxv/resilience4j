@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration debug="true"  scan="true" scanPeriod="60 seconds">
+    <contextName>load-balancer-with-feign</contextName>
+
+    <property name="app_name" value="resilience4j"/>
+    <property name="log.path" value="/logs/${app_name}/logback.log"/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <!--ThresholdFilter为系统定义的拦截器，例如我们用ThresholdFilter来过滤掉debug级别以下的日志。如果不用记得注释掉，不然你控制台会发现没日志~-->
+        <!--<filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+            <!--<level>debug</level>-->
+        <!--</filter>-->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %class %line 行 %method - %msg%xEx%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}.%d{yyyy-MM-dd}.zip</fileNamePattern>
+        </rollingPolicy>
+
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %class %line 行 %method - %msg%xEx%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <root level="warn">
+        <appender-ref ref="console"/>
+    </root>
+
+    <logger name="pers.roamer.spring" level="debug" additivity="false">>
+        <appender-ref ref="console"/>
+        <appender-ref ref="file"/>
+    </logger>
+
+</configuration>

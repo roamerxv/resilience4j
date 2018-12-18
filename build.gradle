@@ -49,6 +49,7 @@ allprojects {
 
     dependencies {
         compileOnly "org.projectlombok:lombok:1.18.4"
+        compile("org.springframework.boot:spring-boot-starter-logging:${SpringBootVersion}")
         testCompile('org.springframework.boot:spring-boot-starter-test')
     }
 }
