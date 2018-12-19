@@ -6,6 +6,7 @@ buildscript {
         // SpringCloudVersion = '2.0.2.RELEASE'
         SpringBootAdminVersion = '2.1.1'
         SrpingSessionDataRedis = "2.1.2.RELEASE"
+        Resilience4jVersion = '0.13.2'
     }
     repositories {
         maven { url "${REPOSITORY_HOME}" }

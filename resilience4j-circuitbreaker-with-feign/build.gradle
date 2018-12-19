@@ -1,0 +1,18 @@
+plugins {
+//    id 'war'
+}
+
+apply plugin: 'application'
+mainClassName = 'pers.roamer.spring.cloud.resilience4j.circuitbreaker.ClientApplication'
+
+dependencies {
+
+    compile(
+            "org.springframework.boot:spring-boot-starter-web",
+            "org.springframework.cloud:spring-cloud-starter-openfeign",
+            "de.codecentric:spring-boot-admin-starter-client:${SpringBootAdminVersion}",
+            "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client",
+            "io.github.resilience4j:resilience4j-circuitbreaker:${Resilience4jVersion}",
+
+    )
+}

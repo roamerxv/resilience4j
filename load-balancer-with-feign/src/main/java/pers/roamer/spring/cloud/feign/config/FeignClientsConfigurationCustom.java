@@ -25,6 +25,16 @@ public class FeignClientsConfigurationCustom implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate requestTemplate) {
         log.debug("MyRequestInterceptor apply begin.");
+//        try{
+//
+//            String sessionId = RequestContextHolder.currentRequestAttributes().getSessionId();
+//            if ( !sessionId.isEmpty()){
+//                requestTemplate.header("Cookie","JSESSIONID=" + sessionId);
+//            }
+//        }catch(Exception e){
+//            log.error("FeignClientsConfigurationCustom exception ",e);
+//        }
+
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
         if (requestAttributes == null) {
             log.debug("requestAttributes is null");
